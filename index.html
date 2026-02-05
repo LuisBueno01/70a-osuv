@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Asistencia – UV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--  Estilos -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 📱 PWA -->
+  <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+  <!--  HEADER INSTITUCIONAL -->
+  <header class="header">
+    <div id="contadorPublico" class="contador-publico"></div>
+    <img src="logo-uv3.png" alt="Universidad Veracruzana" class="logo">
+    <div>
+      <h1>Registro de Asistencia</h1>
+      <p>Aniversario Universidad Veracruzana</p>
+    </div>
+  </header>
+
+  <!--  CAJA DE INVITADOS -->
+  <div class="guest-box">
+
+    <h2>Bienvenido</h2>
+    <p>Escribe tu nombre para verificar tu invitación</p>
+
+    <input
+      type="text"
+      id="busqueda"
+      placeholder="Nombre completo"
+      autocomplete="off"
+    >
+
+    <button onclick="buscarVisitante()">Buscar</button>
+
+    <!--  RESULTADOS -->
+    <div id="resultado"></div>
+
+    <!-- CÓDIGO -->
+    <div id="codigo"></div>
+
+    <!--  QR -->
+    <div id="qrcode"></div>
+
+  </div>
+
+  <!--  QR -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+
+  <!--  Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+
+  <!--  App -->
+  <script src="firebase.js"></script>
+  <script src="visitantes.js"></script>
+
+  <!--  Service Worker -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js");
+    }
+  </script>
+
+</body>
+</html>

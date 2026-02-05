@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Validación de Acceso</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h2>Validar acceso</h2>
+
+  <input id="codigo" placeholder="Código del visitante">
+  <button onclick="validar()">Validar</button>
+
+  <p id="mensaje"></p>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+
+  <script src="firebase.js"></script>
+  <script src="validar.js"></script>
+</body>
+</html>

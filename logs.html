@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Logs de acciones</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Auditoría del sistema</h1>
+
+  <button onclick="window.location.href='admin.html'">
+    ← Volver
+  </button>
+
+  <hr>
+
+  <select id="filtro" onchange="aplicarFiltro()">
+    <option value="TODOS">Todos</option>
+    <option value="AGREGAR_VISITANTE">Agregar visitante</option>
+    <option value="MARCAR_PRESENTE">Marcar presente</option>
+    <option value="MARCAR_AUSENTE">Marcar ausente</option>
+    <option value="VALIDAR_ACCESO">Validar acceso</option>
+  </select>
+
+  <hr>
+
+  <div id="listaLogs"></div>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+
+  <script src="firebase.js"></script>
+  <script src="logs.js"></script>
+</body>
+</html>

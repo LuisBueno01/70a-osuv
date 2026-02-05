@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Encargados</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!--  BLOQUEO HASTA VALIDAR SESIÓN -->
+  <div id="loading">
+    Verificando sesión...
+  </div>
+
+  <!-- APP PRINCIPAL -->
+  <div id="app" style="display:none">
+
+    <h1>Panel de Asistencia</h1>
+
+    <button onclick="logout()">Cerrar sesión</button>
+    <button onclick="activarPantallaPublica()">📺 Pantalla pública</button>
+    <button onclick="toggleDarkMode()">🌙 Modo oscuro</button>
+    <button onclick="exportarExcel()">Exportar Excel</button>
+    <button onclick="exportarPDF()">Exportar PDF</button>
+    <button onclick="window.location.href='logs.html'">Ver logs</button>
+
+    
+    <hr>
+
+   <h3>🎖️ Menciones honoríficas y agradecimientos</h3>
+
+    <div id="mencionesHonorificas" class="menciones-container">
+    <p class="mencion-vacia">Aún no hay personas para mencionar</p>
+   </div>
+
+    
+
+
+    <hr>
+
+
+    <!--  ESTADÍSTICAS -->
+    <h3>Estadísticas en vivo</h3>
+    <div class="stats">
+      <div>Total Invitados: <span id="total">0</span></div>
+      <div>Presentes: <span id="presentes">0</span></div>
+      <div>Ausentes: <span id="ausentes">0</span></div>
+      <div>Validados: <span id="validados">0</span></div>
+    </div>
+
+    <hr>
+
+    <!-- GRAFICAS -->
+      <div id="seccionGraficas">
+      <h3>Gráficas Del Evento</h3>
+
+     <div class="chart-container">
+     <canvas id="graficaEstatus"></canvas>
+     </div>
+
+     <div class="chart-container">
+     <canvas id="graficaValidacion"></canvas>
+      </div>
+
+     <div class="chart-container">
+     <canvas id="graficaLlegadasHora"></canvas>
+     </div>
+ 
+     <div class="chart-container">
+     <canvas id="graficaPorTipo"></canvas>
+     </div>
+    </div>
+
+    <hr>
+
+    <!--  AGREGAR VISITANTE -->
+    <h3>Agregar visitante</h3>
+    <input id="nombre" placeholder="Nombre completo">
+    <select id="tipo">
+      <option>Alumno</option>
+      <option>Maestro</option>
+      <option>Empresa</option>
+      <option>Exrector</option>
+      <option>Gobernacion</option>
+      <option>Capitulado</option>
+    </select>
+    <button onclick="agregarVisitante()">Agregar</button>
+
+    <hr>
+
+    <!--  BUSCAR -->
+    <input
+      type="text"
+      id="busqueda"
+      placeholder="Buscar por nombre..."
+      onkeyup="filtrarLista()"
+    />
+
+    <!--  LISTA -->
+    <h3>Lista de Asistentes en el Evento</h3>
+    <div id="lista"></div>
+
+  </div> <!-- /app -->
+
+  <!--  FIREBASE SDKs (ORDEN CRÍTICO) -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+
+  <!--  Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!--  App -->
+  <script src="firebase.js"></script>
+  <script src="admin.js"></script>
+
+</body>
+</html>
