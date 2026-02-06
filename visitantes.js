@@ -173,4 +173,36 @@ function iniciarContadorPublico() {
     });
 }
 
+function registrarInvitadoDirecto() {
+  const nombre = document.getElementById("busqueda").value.trim();
+
+  if (!nombre) {
+    mostrarMensaje("Escribe tu nombre completo", "warn");
+    return;
+  }
+
+  db.collection("visitantes")
+    .where("nombre", "==", nombre)
+    .get()
+    .then(snapshot => {
+      if (!snapshot.empty) {
+        mostrarMensaje("Ya estás registrado", "info");
+        return;
+      }
+
+      db.collection("visitantes").add({
+        nombre,
+        tipo: "Invitado",
+        estatus: "Presente",
+        validado: false,
+        recibeMencion: false,
+        hora: firebase.firestore.FieldValue.serverTimestamp()
+      });
+
+      mostrarMensaje("✅ Registro exitoso, bienvenido al evento", "ok");
+      lanzarConfeti();
+    });
+}
+
+
 iniciarContadorPublico();

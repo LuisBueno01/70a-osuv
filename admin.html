@@ -27,12 +27,14 @@
 
     
     <hr>
+    <div id="seccionMenciones">
+     <h3> Menciones honoríficas y agradecimientos</h3>
 
-   <h3>🎖️ Menciones honoríficas y agradecimientos</h3>
+     <div id="mencionesHonorificas" class="menciones-container">
+      <p class="mencion-vacia">Aún no hay personas para mencionar</p>
+     </div>
+    </div>
 
-    <div id="mencionesHonorificas" class="menciones-container">
-    <p class="mencion-vacia">Aún no hay personas para mencionar</p>
-   </div>
 
     
 
@@ -50,6 +52,10 @@
     </div>
 
     <hr>
+    
+     <button class="solo-movil" onclick="toggleGraficas()">
+       Mostrar gráficas
+      </button>
 
     <!-- GRAFICAS -->
       <div id="seccionGraficas">
@@ -78,6 +84,7 @@
     <h3>Agregar visitante</h3>
     <input id="nombre" placeholder="Nombre completo">
     <select id="tipo">
+      <option>Invitado</option>
       <option>Alumno</option>
       <option>Maestro</option>
       <option>Empresa</option>
@@ -90,16 +97,25 @@
     <hr>
 
     <!--  BUSCAR -->
-    <input
-      type="text"
-      id="busqueda"
-      placeholder="Buscar por nombre..."
-      onkeyup="filtrarLista()"
-    />
+   <div class="busqueda-nombre">
+  <h3>Búsqueda por nombre</h3>
+  <p class="descripcion-busqueda">
+    Ingresa el nombre completo o parcial de la persona
+  </p>
+
+  <input
+    type="text"
+    id="buscarNombre"
+    placeholder="Ej. Juan Pérez"
+  >
+</div>
+
 
     <!--  LISTA -->
     <h3>Lista de Asistentes en el Evento</h3>
-    <div id="lista"></div>
+       <!-- <div id="lista"></div>-->
+       <div id="lista" class="lista"></div>
+
 
   </div> <!-- /app -->
 

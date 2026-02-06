@@ -406,3 +406,140 @@ body.publico .stats {
 }
 
 
+/* =========================
+   OPTIMIZACIÓN MÓVIL
+========================= */
+@media (max-width: 768px) {
+
+  /* Reducir padding general */
+  body {
+    padding: 10px;
+  }
+
+  /* Header más compacto */
+  .header {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .header h1 {
+    font-size: 18px;
+  }
+
+  .header p {
+    font-size: 12px;
+  }
+
+  /* Botones más pequeños */
+  button {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  /* Ocultar gráficas por defecto */
+  #seccionGraficas {
+    display: none;
+  }
+
+  /* Estadísticas en una sola columna */
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  /* Lista más limpia */
+  .card {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  /* Cargo más discreto */
+  .card em {
+    font-size: 13px;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* Menciones más compactas */
+  .mencion-card {
+    padding: 10px;
+  }
+
+  /* Inputs y búsqueda más cómodos */
+  input, select {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+.solo-movil {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .solo-movil {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+
+input#busqueda {
+  border-radius: 20px;
+  border: 2px solid #2563EB;
+  padding-left: 16px;
+}
+
+.card strong {
+  font-size: 15px;
+}
+.busqueda-nombre h3 {
+  margin-bottom: 4px;
+}
+
+.descripcion-busqueda {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Grupo */
+.grupo {
+  display: block;
+}
+
+.grupo-titulo {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  text-transform: capitalize;
+}
+
+/* Grid de tarjetas */
+.grupo-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.grupo-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.grupo-grid::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.card {
+  min-width: 260px;   /* MUY IMPORTANTE */
+  flex-shrink: 0;
+}
+

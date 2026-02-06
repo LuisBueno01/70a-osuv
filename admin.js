@@ -191,14 +191,22 @@ function renderLista(datos) {
 /* =========================
    FILTRAR
 ========================= */
+const inputBuscar = document.getElementById("buscarNombre");
+
+inputBuscar.addEventListener("input", filtrarLista);
+
 function filtrarLista() {
-  const texto = document.getElementById("busqueda").value.toLowerCase();
-  renderLista(
-    visitantesCache.filter(v =>
-      v.nombre.toLowerCase().includes(texto)
-    )
+  const texto = inputBuscar.value.toLowerCase();
+
+  const filtrados = visitantesCache.filter(v =>
+    v.nombre.toLowerCase().includes(texto) ||
+    (v.cargo && v.cargo.toLowerCase().includes(texto))
   );
+
+  renderLista(filtrados);
 }
+
+
 
 /* =========================
    PERMISOS POR ROL
@@ -210,7 +218,11 @@ function aplicarPermisos() {
   const btnPDF = document.querySelector("[onclick='exportarPDF()']");
   const btnLogs = document.querySelector("[onclick=\"window.location.href='logs.html'\"]");
   const seccionGraficas = document.getElementById("seccionGraficas");
+  const seccionMenciones = document.getElementById("seccionMenciones");
 
+  /* =========================
+     ADMIN GENERAL
+  ========================= */
   if (rolUsuario === "GENERAL") {
     if (btnExcel) btnExcel.style.display = "";
     if (btnPDF) btnPDF.style.display = "";
@@ -219,11 +231,15 @@ function aplicarPermisos() {
     return;
   }
 
+  /* =========================
+     ASISTENTE
+  ========================= */
   if (rolUsuario === "ASISTENTE") {
     if (btnExcel) btnExcel.style.display = "none";
     if (btnPDF) btnPDF.style.display = "none";
     if (btnLogs) btnLogs.style.display = "none";
     if (seccionGraficas) seccionGraficas.style.display = "none";
+    if (seccionMenciones) seccionMenciones.style.display = "none";
   }
 }
 
@@ -447,3 +463,9 @@ function iniciarMencionesHonorificas() {
       });
     });
 }
+
+function toggleGraficas() {
+  const sec = document.getElementById("seccionGraficas");
+  sec.style.display = sec.style.display === "none" ? "block" : "none";
+}
+
