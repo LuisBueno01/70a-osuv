@@ -543,3 +543,52 @@ input#busqueda {
   flex-shrink: 0;
 }
 
+/* =========================
+   MEJORAS ESPECÍFICAS PARA MÓVIL
+========================= */
+@media (max-width: 768px) {
+
+  /* Ocultar secciones secundarias */
+  .stats {
+    display: none;
+  }
+
+  #seccionAgregar {
+    display: none;
+  }
+
+  /* Lista en una sola columna */
+  .grupo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Cards más compactas */
+  .card {
+    padding: 12px;
+    gap: 4px;
+  }
+
+  .card .nombre {
+    font-size: 14px;
+  }
+
+  .card .cargo {
+    font-size: 13px;
+  }
+
+  /* Botones */
+  .estado button {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  /* Títulos de grupo más claros */
+  .grupo-titulo {
+    font-size: 16px;
+    margin-top: 20px;
+    border-bottom: 2px solid var(--azul-claro);
+    padding-bottom: 4px;
+  }
+}
+
+
