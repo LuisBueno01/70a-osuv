@@ -469,3 +469,15 @@ function toggleGraficas() {
   sec.style.display = sec.style.display === "none" ? "block" : "none";
 }
 
+
+//pruebas borrar si no funciona para volver a lo anterior que si jalaba
+
+function toggleGraficas() {
+  const seccion = document.getElementById('seccionGraficas');
+  seccion.classList.toggle('visible');
+  
+  const btn = event.target;
+  btn.textContent = seccion.classList.contains('visible') 
+    ? '📊 Ocultar gráficas' 
+    : '📊 Mostrar gráficas';
+}
